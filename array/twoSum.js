@@ -17,9 +17,9 @@ const twoSum = function (nums, target) {
   return null; // O(n^2)
 };
 
-// hash map  [1, 2, 9,2]  11
+// hash map  [1, 7, 9, 2]  11
 const twoSum2 = function (nums, target) {
-  const numsMap = {}; // { 10: 0, 9: 1 }
+  const numsMap = {}; // { 10: 0, 4: 1, 2: 2 , 9: 3 }
   for (let p = 0; p < nums.length; p++) {
     // 2
     const currentMapValue = numsMap[nums[p]]; // 1
