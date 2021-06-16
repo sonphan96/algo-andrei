@@ -1,4 +1,4 @@
-var validPalindrome = function (s) {
+const validPalindrome = function (s) {
   let start = 0;
   let end = s.length - 1;
   while (start < end) {
@@ -14,7 +14,7 @@ var validPalindrome = function (s) {
   return true;
 };
 
-var validSubPalindrome = function (s, start, end) {
+const validSubPalindrome = function (s, start, end) {
   while (start < end) {
     if (s[start] !== s[end]) {
       return false;
