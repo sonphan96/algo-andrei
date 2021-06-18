@@ -24,18 +24,21 @@ const printList = head => {
 
 // --------- Our solution -----------
 // 1 -> 2 -> 3 -> 4 -> 5 -> null
-// 1 -> null
+// 2 -> 1 -> null
 
 const reverseLinkedList = function (head) {
   let prev = null;
   let current = head;
 
   while (current) {
-    let nextTemp = current.next; // 2
+    // 2
+    let nextTemp = current.next; // 3
     current.next = prev;
-    prev = current; // 1 -> null
-    current = nextTemp;
+    prev = current; // 2 -> 1 -> null
+    current = nextTemp; // 3
   }
 
   return prev;
 };
+// time: O(n)
+// space: O(1)
