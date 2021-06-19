@@ -31,3 +31,6 @@ const reverseBetween = function (head, m, n) {
     return newList;
   }
 };
+
+// space: O(1)
+// time: O(n)
