@@ -12,7 +12,7 @@ const isValidParentheses = function (s) {
   const stack = [];
 
   for (let i = 0; i < s.length; i++) {
-    if (parens[s[[i]]]) {
+    if (parens[s[i]]) {
       stack.push(s[i]);
     } else {
       const leftBracket = stack.pop();
@@ -22,4 +22,9 @@ const isValidParentheses = function (s) {
       }
     }
   }
+
+  return stack.length === 0;
 };
+
+// space: O(n)
+// time: O(n)
