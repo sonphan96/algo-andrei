@@ -21,6 +21,8 @@ const findCycle = function (head) {
 
 // Floyd tortoise and hare
 const findCycle = function (head) {
+  if (!head) return null;
+
   let hare = head,
     tortoise = head;
 
@@ -29,7 +31,7 @@ const findCycle = function (head) {
     tortoise = tortoise.next;
 
     if (hare === null || hare.next === null) {
-      return false;
+      return null;
     } else {
       hare = hare.next;
     }
@@ -48,4 +50,4 @@ const findCycle = function (head) {
 };
 
 // Time: O (n)
-// Space: o (1)
+// Space: O (1)
