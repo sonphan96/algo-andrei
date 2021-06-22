@@ -3,10 +3,11 @@
 // ))((
 
 const minRemoveToMakeValid = function (str) {
-  const res = str.split('');
+  const res = str.split(''); // O(n)
   const stack = [];
 
   for (let i = 0; i < res.length; i++) {
+    // O(n)
     if (res[i] === '(') {
       stack.push(i);
     } else if (res[i] === ')' && stack.length) {
@@ -17,9 +18,13 @@ const minRemoveToMakeValid = function (str) {
   }
 
   while (stack.length) {
+    // O (n)
     const currentIndex = stack.pop();
     res[currentIndex] = '';
   }
 
-  return res.join('');
+  return res.join(''); // O(n)
 };
+
+// Time: O(4n)
+// space: O(2n)
