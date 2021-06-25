@@ -1,10 +1,10 @@
 var items = [5, 3, 7, 6, 2, 9];
-function swap(items, leftIndex, rightIndex) {
+function swap2(items, leftIndex, rightIndex) {
   var temp = items[leftIndex];
   items[leftIndex] = items[rightIndex];
   items[rightIndex] = temp;
 }
-function partition(items, left, right) {
+function partition2(items, left, right) {
   var pivot = items[Math.floor((right + left) / 2)], //middle element
     i = left, //left pointer
     j = right; //right pointer
@@ -16,7 +16,7 @@ function partition(items, left, right) {
       j--;
     }
     if (i <= j) {
-      swap(items, i, j); //sawpping two elements
+      swap2(items, i, j); //sawpping two elements
       i++;
       j--;
     }
@@ -24,21 +24,55 @@ function partition(items, left, right) {
   return i;
 }
 
-function quickSort(items, left, right) {
+function quickSort2(items, left, right) {
   var index;
   if (items.length > 1) {
-    index = partition(items, left, right); //index returned from partition
+    index = partition2(items, left, right); //index returned from partition
     if (left < index - 1) {
       //more elements on the left side of the pivot
-      quickSort(items, left, index - 1);
+      quickSort2(items, left, index - 1);
     }
     if (index < right) {
       //more elements on the right side of the pivot
-      quickSort(items, index, right);
+      quickSort2(items, index, right);
     }
   }
   return items;
 }
 // first call to quick sort
-var sortedArray = quickSort(items, 0, items.length - 1);
+var sortedArray = quickSort2(items, 0, items.length - 1);
 console.log(sortedArray); //prints [2,3,5,6,7,9]
+
+/////////////////// Solution 2  ////////////////////////
+const array = [5, 3, 1, 6, 4, 2];
+const kToFind = 4;
+
+const swap = function (array, i, j) {
+  const temp = array[i];
+  array[i] = array[j];
+  array[j] = temp;
+};
+
+const getPartition = function (nums, left, right) {
+  const pivotElement = nums[right];
+  let partitionIdx = left;
+
+  for (let j = left; j < right; j++) {
+    if (nums[j] <= pivotElement) {
+      swap(nums, partitionIdx, j);
+      partitionIdx++;
+    }
+  }
+  swap(nums, partitionIdx, right);
+
+  return partitionIdx;
+};
+
+const quickSort = function (nums, left, right) {
+  if (left < right) {
+    const partitionIndex = getPartition(nums, left, right);
+
+    quickSort(nums, left, partitionIndex - 1);
+    quickSort(nums, partitionIndex + 1, right);
+  }
+};
