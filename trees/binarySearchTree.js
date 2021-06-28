@@ -173,6 +173,9 @@ function traverseInOrder(node, list) {
   }
   return list;
 }
+//     9
+//  4     20
+//1  6  15  170
 
 function traversePreOrder(node, list) {
   list.push(node.value);
