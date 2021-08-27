@@ -44,3 +44,5 @@ const canFinish = function (n, prerequisites) {
 };
 
 canFinish(6, p);
+
+// Topological sort
