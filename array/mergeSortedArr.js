@@ -16,13 +16,11 @@ function mergeSortedArrays(arr1, arr2) {
   }
 
   while (arr1 || arr2) {
-    if (item1 <= item2) {
+    if (!item2 || item1 <= item2) {
       mergedArray.push(item1);
       i++;
       item1 = arr1[i];
-    }
-
-    if (item1 > item2) {
+    } else {
       mergedArray.push(item2);
       j++;
       item2 = arr2[j];
